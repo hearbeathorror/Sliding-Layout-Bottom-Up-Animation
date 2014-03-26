@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -78,6 +77,9 @@ public class SecondActivity extends FragmentActivity implements OnClickListener,
 				mFrameLayout.setBackgroundColor(getResources().getColor(android.R.color.white));
 				mFrameLayout.setVisibility(View.VISIBLE);
 				mOnviewAnimatedListener.onViewAnimated(false);
+				mListView.setEnabled(false);
+				mTxtView.setVisibility(View.GONE);
+				mFrameLayout.setClickable(true);
 			}
 			
 			@Override
@@ -113,6 +115,9 @@ public class SecondActivity extends FragmentActivity implements OnClickListener,
 			public void onAnimationEnd(Animation animation) {
 				mOnviewAnimatedListener.onViewAnimated(true);
 				mFrameLayout.setVisibility(View.GONE);
+				mListView.setEnabled(true);
+				mTxtView.setVisibility(View.VISIBLE);
+				mFrameLayout.setClickable(false);
 			}
 		});
 	}
@@ -121,7 +126,6 @@ public class SecondActivity extends FragmentActivity implements OnClickListener,
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txtAbout:
-			Log.e("dhara","clicked!");
 			animateView();
 			break;
 

@@ -46,7 +46,6 @@ public class AboutFragment extends Fragment implements OnClickListener, OnviewAn
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.header:
-			//performReverseAnimation();
 			mOnViewReverseAnimationListener.onViewReverseAnimated();
 		default:
 			break;
@@ -55,7 +54,6 @@ public class AboutFragment extends Fragment implements OnClickListener, OnviewAn
 	
 	@Override
 	public void onViewAnimated(boolean isReverseAnimation) {
-		//performAnimation();
 		if(isReverseAnimation) {
 			relLayout.setVisibility(View.GONE);
 		}else {
